@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { addDoc, collection, serverTimestamp, serverTimeStamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
@@ -88,13 +89,20 @@ function CreateListing() {
 
       geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
+
       location = data.status === 'ZERO_RESULTS' 
         ? undefined 
         : data.results[0]?.formatted_address;
-      
+
+      if (data.results[0].partial_match) {
+        setLoading(false);
+        toast.error('Please enter a correct address');
+        return false;
+      }
       if (location === undefined || location.includes('undefined')) {
         setLoading(false);
         toast.error('Please enter a correct address');
+        return false;
       }
     } else {
       geolocation.lat = latitude;
@@ -146,8 +154,22 @@ function CreateListing() {
       toast.error('Failed to upload images');
     });
 
-    console.log("🚀 ~ file: CreateListing.jsx ~ line 159 ~ onSubmit ~ imgUrls", imgUrls)
+    const formDataCopy = {
+      ...formData,
+      imgUrls,
+      geolocation,
+      timestamp: serverTimestamp()
+    }
+
+    delete formDataCopy.images;
+    delete formDataCopy.address;
+    location && (formDataCopy.location = location);
+    !formDataCopy.offer && delete formDataCopy.discountedPrice;
+
+    const docRef = await addDoc(collection(db, 'listings'), formDataCopy);
     setLoading(false);
+    toast.success('Listing Saved!');
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
 
   const onMutate = (e) => {
@@ -168,10 +190,14 @@ function CreateListing() {
     if (!e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
-        [e.target.id]: boolean ?? e.target.value
+        [e.target.id]: boolean ?? formatEventData(e)
       }))
     }
   };
+
+  const formatEventData = (e) => {
+    return e.target.type === "number" ? e.target.valueAsNumber : e.target.value;
+  }
 
   if (loading) return <Spinner />
 
