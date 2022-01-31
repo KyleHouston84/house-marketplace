@@ -9,6 +9,7 @@ html::-webkit-scrollbar {
 
 body {
   font-family: 'Montserrat', sans-serif;
+  color: rgb(59 59 59);
   background-color: #f2f4f8;
   margin: 0;
   box-sizing: border-box;
@@ -17,12 +18,24 @@ body {
 a {
   text-decoration: none;
   display: block;
-  color: #000000;
+  color: rgb(59 59 59);
 }
 
 button {
   outline: none;
   border: none;
+  cursor: pointer;
+  color: rgb(59 59 59);
+  box-shadow: 0px 7px 9px -7px rgb(0 0 0 / 12%);
+}
+
+input {
+  color: rgb(59 59 59);
+  box-shadow: 0px 7px 9px -7px rgb(0 0 0 / 12%);
+}
+
+textarea {
+  color: rgb(59 59 59);
 }
 
 .input,
@@ -32,7 +45,7 @@ button {
 .textarea {
   box-shadow: rgba(0, 0, 0, 0.11);
   border: none;
-  background: #ffffff;
+  background: #fff;
   border-radius: 3rem;
   height: 3rem;
   width: 100%;
@@ -62,7 +75,7 @@ button {
   background: #00cc66;
   border-radius: 1rem;
   padding: 0.85rem 2rem;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   font-size: 1.25rem;
   width: 80%;
@@ -145,7 +158,7 @@ button {
   bottom: 0;
   right: 0;
   height: 85px;
-  background-color: #ffffff;
+  background-color: #fff;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -186,12 +199,12 @@ button {
 
 .nameInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/badgeIcon.svg') #ffffff 2.5% center no-repeat;
+  background: url('./assets/svg/badgeIcon.svg') #fff 2.5% center no-repeat;
 }
 
 .emailInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/personIcon.svg') #ffffff 2.5% center no-repeat;
+  background: url('./assets/svg/personIcon.svg') #fff 2.5% center no-repeat;
 }
 
 .passwordInputDiv {
@@ -200,7 +213,7 @@ button {
 
 .passwordInput {
   margin-bottom: 2rem;
-  background: url('./assets/svg/lockIcon.svg') #ffffff 2.5% center no-repeat;
+  background: url('./assets/svg/lockIcon.svg') #fff 2.5% center no-repeat;
 }
 
 .showPassword {
@@ -279,9 +292,8 @@ button {
   margin: 1.5rem;
   width: 3rem;
   height: 3rem;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .socialIconImg {
@@ -322,7 +334,7 @@ button {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #ffffff !important;
+  background-color: #fff !important;
 }
 
 .swiperSlideDiv {
@@ -337,7 +349,7 @@ button {
 }
 
 .swiperSlideText {
-  color: #ffffff;
+  color: #fff;
   position: absolute;
   top: 70px;
   left: 0;
@@ -354,13 +366,13 @@ button {
 }
 
 .swiperSlidePrice {
-  color: #000000;
+  color: rgb(59 59 59);
   position: absolute;
   top: 143px;
   left: 11px;
   font-weight: 600;
   max-width: 90%;
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
 }
@@ -385,6 +397,7 @@ button {
   border-radius: 1.5rem;
   object-fit: cover;
   margin: 0 auto;
+  box-shadow: 0px 16px 9px -7px rgb(0 0 0 / 12%);
 }
 
 .exploreCategoryName {
@@ -417,6 +430,7 @@ button {
   height: 100px;
   border-radius: 1.5rem;
   object-fit: cover;
+  box-shadow: 0px 16px 9px -7px rgb(0 0 0 / 12%);
 }
 @media (min-width: 1024px) {
   .categoryListingImg {
@@ -475,7 +489,7 @@ button {
   text-align: center;
   padding: 0.25rem 0.5rem;
   background-color: #000000;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   border-radius: 1rem;
   opacity: 0.7;
@@ -492,7 +506,7 @@ button {
   top: 3%;
   right: 5%;
   z-index: 2;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -515,7 +529,7 @@ button {
 .discountPrice {
   padding: 0.25rem 0.5rem;
   background-color: #000000;
-  color: #ffffff;
+  color: #fff;
   border-radius: 1rem;
   font-size: 0.8rem;
   font-weight: 600;
@@ -525,7 +539,7 @@ button {
 .listingType {
   padding: 0.25rem 0.5rem;
   background-color: #00cc66;
-  color: #ffffff;
+  color: #fff;
   border-radius: 2rem;
   display: inline;
   font-weight: 600;
@@ -566,7 +580,7 @@ button {
   top: 9%;
   right: 5%;
   z-index: 2;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   font-weight: 600;
@@ -624,7 +638,7 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
   background-color: #00cc66;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
@@ -647,10 +661,10 @@ button {
 }
 
 .profileCard {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 7px 9px -7px rgb(0 0 0 / 12%);
   max-width: 500px;
 }
 
@@ -689,10 +703,10 @@ button {
 }
 
 .createListing {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 1rem;
   padding: 0.25rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 7px 9px -7px rgb(0 0 0 / 12%);
   margin-top: 2rem;
   font-weight: 600;
   max-width: 500px;
@@ -728,7 +742,7 @@ button {
 .formInputFile,
 .formButtonActive {
   padding: 0.9rem 3rem;
-  background-color: #ffffff;
+  background-color: #fff;
   font-weight: 600;
   border-radius: 1rem;
   font-size: 1rem;
@@ -736,10 +750,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 7px 9px -7px rgb(0 0 0 / 12%);
 }
 .formButtonActive {
   background-color: #00cc66;
-  color: #ffffff;
+  color: #fff;
 }
 
 .flex {
@@ -795,7 +810,7 @@ button {
 .formInputFile::-webkit-file-upload-button {
   background-color: #00cc66;
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
@@ -813,7 +828,7 @@ button {
 .offerBadge {
   padding: 0.25rem 0.5rem;
   background-color: #000000;
-  color: #ffffff;
+  color: #fff;
   border-radius: 1rem;
   margin-left: 1rem;
   font-size: 0.8rem;
