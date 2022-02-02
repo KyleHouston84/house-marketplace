@@ -9,7 +9,7 @@ function Explore() {
       <header>
         <p className="pageHeader">Explore</p>
       </header>
-     
+
       <Slider />
 
       <main>

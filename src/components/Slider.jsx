@@ -50,7 +50,7 @@ function Slider() {
       <Swiper
         slidesPerView={1}
         modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
-        autoplay={{delay: 2500, disableOnInteraction: true}}
+        autoplay={{delay: 4000, disableOnInteraction: true}}
         pagination={{ clickable: true }}>
         {listings.map(({data, id}) => (
           <SwiperSlide key={id} onClick={() => navigate(`/category/${data.type}/${id}`)}>
