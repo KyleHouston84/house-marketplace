@@ -5,7 +5,6 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import OAuth from '../components/OAuth';
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg';
 import visibilityIcon  from '../assets/svg/visibilityIcon.svg';
-import { connectFirestoreEmulator } from 'firebase/firestore';
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);

@@ -86,6 +86,7 @@ function Profile() {
     }
   }
 
+  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
 
   return <div className='profile'>
     <header className='profileHeader'>
@@ -107,7 +108,7 @@ function Profile() {
         <form>
           <input type="text" id="name" className={!changeDetails ? 'profileName' : 'profileNameActive'} disabled={!changeDetails} value={name} onChange={onChange} />
           {/* TODO: Add the ability for the user to update their email */}
-          <input type="text" id="email" className={!changeDetails ? 'profileEmail' : 'profileEmail'} disabled={!changeDetails} value={email} onChange={onChange} disabled={true}/>
+          <input type="text" id="email" className={!changeDetails ? 'profileEmail' : 'profileEmail'} disabled={!changeDetails} value={email} onChange={onChange} />
         </form>
       </div>
 
@@ -122,7 +123,7 @@ function Profile() {
           <p className="listingText">Your Listings</p>
           <ul className="listingDetailsList">
             {listings.map(({data, id}) => (
-              <ListingItem key={id} listing={data} id={id} onDelete={() => onDelete(id)} />
+              <ListingItem key={id} listing={data} id={id} onEdit={() => onEdit(id)} onDelete={() => onDelete(id)} />
             ))}
           </ul>
         </>
